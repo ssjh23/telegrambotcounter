@@ -53,7 +53,7 @@ def button(update: Update, context: CallbackContext) -> None:
 
 def help_command(update: Update, context: CallbackContext) -> None:
     chat_id = update.message.chat.id
-    update.message.reply_text(chat_id, 'Use /start to test this bot.')
+    context.bot.sendMessage(chat_id, 'Use /start to test this bot.')
     context.bot.sendMessage(chat_id, 'Get route returns a photo of the suggested optimised route')
     context.bot.sendMessage(chat_id, 'Get Capacity returns a photo of the trash bin capacites. Red: >75%, Yellow: 50-75%. Green: <50%')
 
