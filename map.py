@@ -1,19 +1,21 @@
 import googlemaps
+import pyrebase
+import fbaseConfig
 
 gmaps = googlemaps.Client(key='AIzaSyBIMufMrfewD-4T9otfhBPWUp9xPqH-RKw')
 
 from datetime import datetime, timedelta
 
 def route():
-    # locations = ["Fort Canning Park, Singapore",
-    #       "Chinatown Buddha Tooth Relic Temple", 
-    #       "Sentosa Island, Singapore", 
-    #       "National Gallery Singapore", 
-    #       "Boat Quay @ Bonham Street, Singapore 049782",
-    #       "Botanic Garden, Singapore",
-    #       "Raffles Hotel, Singapore"]
-    
-    locations = ['1.339398, 103.970784','1.339966, 103.972114','1.341028, 103.968166' ]
+    firebaseConfig = fbaseConfig.firebaseConfig
+    firebase = pyrebase.initialize_app(firebaseConfig)
+    db = firebase.database()
+    route_data = db.child("Route_Data").get()
+    route_list = None
+    for data in route_data.each():
+        if data.key() == 'Route_List':
+            route_list = data.val()
+    locations = route_list[0]
 
     waypoints = locations[1:-1]
 
@@ -43,7 +45,7 @@ def route():
     result_map = gmaps.static_map(
                     center = waypoints[0],
                     scale=2, 
-                    zoom=13,
+                    zoom=15,
                     size=[640, 640], 
                     format="jpg", 
                     maptype="roadmap",
