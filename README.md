@@ -24,27 +24,12 @@
 
 # File Directories
 ```
-📦backend              # AWS backend lambda functions
- ┣ 📂add-order
- ┣ 📂get-all-orders
- ┣ 📂login
- ┣ 📂publish-photo
- ┣ 📂register 
- ┣ 📂validate-order
- 📦frontend 
- ┣ 📂public            # images used for frontend
- ┣ 📂src
- ┃ ┣ 📂api             # custom api function
- ┃ ┣ 📂components      # building blocks for webpage
- ┃ ┣ 📂icons           # icons used for frontend
- ┃ ┣ 📂pages           # main webpages: login, register, dashboard, add order
- ┃ ┣ 📂routes          # routing for logged in / non-logged in users
- ┃ ┗ 📂service         # user authentication function
- 📦hardware            # configuration for solonoid lock + keypad
- ┃ ┣ 📂esp32-cam       # esp32 cam code
- ┃ ┣ 📂raspberry-pi    # raspberry pi configuration
- 📦postman             # sample postman calls for backend api
+📦pictures              # Assets used for the project
+📂CVRP.py               # Route implementation to solve CVRP problem            
+📂capacitymap.py        # Displays the map to show bin capacity
+📂fbaseConfig.py        # Firebase Configurations            
+📂main.py               # Contains telegram bot and connection to database 
+📂map.py                # Plots out route on google maps 
  ```
-
 
 
